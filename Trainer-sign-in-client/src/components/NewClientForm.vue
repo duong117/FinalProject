@@ -72,7 +72,7 @@
             addClient() {
                 this.errors=[]
                 if(this.newClientName && this.newStartDate){
-                    let client = {name: this.newClientName, when: this.newStartDate,present:false}
+                    let client = {name: this.newClientName, when: this.newStartDate,type: this.type,malefemale: this.name,male: this.male, female: this.female,present:false}
                     this.$emit('client-added',client)
                     this.newClientName = ''
                     this.newStartDate = ''
