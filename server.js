@@ -34,7 +34,7 @@ let client = require('./model/client.js')(sequelize, Sequelize)
 var app = express()
 app.use(bodyParser.json())
 
-app.use(express.static(path.join(__dirname, 'Student-sign-in-client','dist')))
+app.use(express.static(path.join(__dirname, 'Trainer-sign-in-client','dist')))
 
 app.use('/api', api_routes(client))
 

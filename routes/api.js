@@ -24,15 +24,27 @@ module.exports = function(Client) {
 
     router.patch('/clients/:id', function(req, res, next){
         Client.update(
-            req.body, { where: { id: req.params.id}})
-            .then( (rowsModified) => {
+            req.body, {
+                where: {
+                    id: req.params.id
+                }
+            }).then( (rowsModified) => {
+            if (!rowsModified[0]) {
+                return res.status(404).send('Not found')
+            } else {
                 return res.send('ok')
-            })
+            }
+        }).catch( err => {
+            if (err instanceof Sequelize.ValidationError) {
+                let messages = err.errors.map( (e) => e.message)
+                return res.status(500).json(messages)
+            }
+            return next(err)
+        })
     })
-
     router.delete('/clients/:id', function(req, res, next){
         Client.destroy({ where: { id: req.params.id }})
-            .then( () => {
+            .then(rowsModified => {
                 return res.send('ok')
             })
             .catch( err => next(err))

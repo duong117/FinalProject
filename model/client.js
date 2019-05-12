@@ -6,21 +6,17 @@ module.exports=(sequelize,DataTypes) => {
             type: DataTypes.STRING,
             allowNull:false
         },when: {
-            type: DataTypes.STRING,
+            type: DataTypes.DATE,
             allowNull:false,
-            unique:true
         },type: {
             type: DataTypes.STRING,
-            allowNull:false,
-            unique:true
+            allowNull:false
         },male: {
             type: DataTypes.STRING,
             allowNull:false,
-            unique:true
         },female: {
             type: DataTypes.STRING,
             allowNull:false,
-            unique:true
         },present:{
             type:DataTypes.BOOLEAN,
             allowNull:false,
