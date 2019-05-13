@@ -12,8 +12,8 @@
                     <tr>
                         <th>Name</th>
                         <th>StartDate</th>
-                        <th>Target?</th>
                         <th>Sex</th>
+                        <th>Target?</th>
                         <th>Present?</th>
                         <th v-show="editTable">Delete</th>
                     </tr>
